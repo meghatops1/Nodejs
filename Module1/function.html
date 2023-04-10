@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        function sayHello(){
+            alert("hello wolrd");
+        }
+        let func = sayHello;
+        func();
+        sayHello();
+
+        let printmarks= function (){
+                console.log("mark=100");
+        };
+        printmarks();
+
+        //callback function with parameter
+        function askQuestion(que,ans1,ans2){
+            if(confirm(que))
+                ans1();
+            else
+                ans2();    
+        }
+        function  showOk(){
+            alert("data deleted");
+        }
+        function showCancle(){
+            alert("data not deleted");
+        }
+        askQuestion("You want to delete data????",showOk,showCancle);
+    </script>
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>

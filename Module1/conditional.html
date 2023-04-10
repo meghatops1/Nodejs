@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function checkEvenOdd(){
+            var number = prompt("Enter your number","");
+            if(number%2 == 0){
+                alert("Given numver even");
+            }
+            else{
+                alert("Given numver odd");
+            }
+        }
+        function checkAge(){
+            var age = prompt("Enter your Age","");
+            //using ternary
+            var result= age > 18 ? "Eligible for vote" : "Not Eligible for vote";
+            alert(result);
+        }
+        function checkDay(){
+            var days = prompt("Enter Day between 1 to 3");
+            switch(parseInt(days)){
+                case 1:
+                    alert("monday");
+                break;
+                case 2:
+                alert("Tuesday");
+                break;    
+                case 3:
+                alert("wed");
+                break; 
+                default:
+                alert("wrong choice");
+                break;                   
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Check wether Number is even or odd</h1>
+    <button onclick="checkEvenOdd()">Check here</button>
+    <h1>Check Eligible for Voting</h1>
+<button onclick="checkAge()">Check here</button>
+<button onclick="checkDay()">Check Day</button>
+</body>
+</html>
