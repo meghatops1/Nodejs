@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let Fruits = ["mango","apple","banana"];
+        console.log(Fruits[0]);
+        console.log(Fruits[1]);
+        console.log(Fruits[2]);
+        Fruits.push("kiwi");
+        console.log(Fruits);
+
+        Fruits.pop();
+        console.log(Fruits);
+        //shift/unshift
+
+        Fruits.shift();
+        console.log(Fruits);
+        
+        Fruits.unshift("Grapes");
+        console.log(Fruits);
+
+        //print array using for loop
+        for(let i=0;i<Fruits.length;i++){
+            console.log(Fruits[i]);
+        }
+        //
+        for(let i of Fruits){
+            console.log(i);
+        }
+        //using forEach
+        Fruits.forEach(function(item,index){
+            console.log("index=="+index+" item="+item);
+        });
+
+        //array slpice
+        // delete Fruits[2];//remove value from index
+         Fruits.splice(1,1);//remove index and value
+         console.log(Fruits);
+         //array slice
+         let arr = ["t", "e", "s", "t"];
+
+            alert( arr.slice(1, 3) ); 
+
+                alert( arr.slice(-2) ); 
+        //array concat
+        let first=["hello","world"];
+        let sec=["php","nodejs"];
+        console.log(first.concat(sec));        
+
+        //sort
+        var numArray = [140000, 104, 99];
+            numArray.sort(function(a, b) {
+            return a + b;//desc
+            //return a-b//asc
+            });
+
+            console.log(numArray);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

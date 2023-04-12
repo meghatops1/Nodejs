@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        class User{
+            constructor(name){
+                this.name=name
+            }
+            showUser(){
+                console.log(this.name);
+            }
+        }
+        let user1= new User("megha");
+        user1.showUser();
+        let user2 = new User("malay");
+        user2.showUser();
+        //class as expression
+        let Product= class{
+            viewProduct(){
+                console.log("view product");
+            }
+        }
+        let p1= new Product();
+        p1.viewProduct();
+//=========================== Inheritance ============================================//
+     class Parent{
+        constructor(a,b){
+            this.a=a;
+            this.b=b;
+        }
+        add(){
+           let addans=this.a+this.b;
+            console.log("addition="+addans);
+        }
+     }
+     class Child extends Parent{
+        constructor(a,b,c){
+            super(a,b);
+            this.c=c;
+        }
+        multiplication(){
+            let ans= this.a*this.b*this.c;
+            console.log("multiplication="+ans);
+        }
+     }
+     let obj1= new Child(1,2,3);
+     obj1.add();
+     obj1.multiplication();
+//================================ static properties and method =================
+            class StaticClass{
+                
+               
+              static objCount(){
+                   console.log("static method run:");
+               }
+            }
+            StaticClass.objCount();
+            class Article {
+                static publisher = "Ilya Kantor";
+              }
+              
+              console.log(Article.publisher);
+            
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
