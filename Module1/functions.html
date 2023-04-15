@@ -38,21 +38,25 @@
         const promise = getUser();
         promise.then(onFulfilled,onRejected);
 
-        //=====================load api data throgh promise================      
+        //=====================load api data throgh promise================
+        var header=  {
+            "Access-Control-Allow-Origin": '*',
+        }
         async function logJSONData() {
-            const response = await fetch("http://country.io/names.json",{
-                method: 'GET',
-                crossorigin: true,
-                mode: "cors",
-                
-            });
-            const jsonData = await response.json();
-            console.log(jsonData);
-          }
+           await fetch('http://country.io/names.json')
+            .then(
+                res =>res.json()
+            ).then(json=>console.log(json))
+            .catch(err =>{
+                console.log("erro message" + err);
+            })
+
+        }
+
+
           logJSONData();
     </script>
 </head>
 <body>
-    
 </body>
 </html>
