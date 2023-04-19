@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "follow-redirects": "^1.15.2",
+    "node-geocoder": "^4.2.0",
+    "node-open-geocoder": "^4.0.1",
+    "request": "^2.88.2"
+  }
+}
