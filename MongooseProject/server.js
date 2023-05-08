@@ -12,7 +12,7 @@ mongoose.connect('mongodb://localhost:27017/crudproject').then(result=>{
 })
 .catch(err=>{console.log(err)});
 
-app.use(routeFile);
+app.use("/",require("./route/routerfile"));
 
 app.listen(3000,()=>{
     console.log("server  is running.........");
