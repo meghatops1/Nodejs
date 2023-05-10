@@ -1,0 +1,27 @@
+
+
+<h1>Add Product</h1>
+ <form action="/updateproduct/{{data._id}}" method="post" enctype="multipart/form-data">
+   <div class="mb-3 mt-3">
+     <label for="email">Product Name:</label>
+     <input type="text" class="form-control" id="email" placeholder="Enter email" 
+      name="pname" value="{{data.pname}}">
+   </div>
+   <div class="mb-3">
+     <label for="pwd">Price:</label>
+     <input type="text" class="form-control" id="pwd" placeholder="Enter Price" 
+      name="price" value="{{data.price}}">
+   </div>
+   <div class="mb-3">
+  <label for="pwd">Qty:</label>
+  <input type="text" class="form-control" id="pwd" placeholder="Enter Qty"
+   name="qty" value="{{data.qty}}">
+</div>
+<div class="mb-3">
+  <label for="pwd">Image:</label>
+  <img src="/images/{{data.image}}" alt="" width="50px">
+  <input type="file" class="form-control" id="pwd" 
+   name="image">
+</div>
+   <button type="submit" class="btn btn-primary">Submit</button>
+ </form>

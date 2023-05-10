@@ -20,13 +20,14 @@ const upload = multer({
   
 /* GET home page. */
 router.get('/', function(req, res, next) {
+  const msg = req.flash('msg');
   ProductController.viewProduct(req,res,async(data,err)=>{
     if(err)
       console.log(err);
     
     data= await  Product.find();
     //res.send(data);
-    res.render('viewproduct', { layout:'admintemp',product:data });
+    res.render('viewproduct', { layout:'admintemp',product:data, 'msg':msg});
   })
  
 });
@@ -49,5 +50,37 @@ router.post('/insertproduct',upload.single('image'),function(req,res,next){
      req.flash('msg', data);
      res.redirect('/addproduct');
   });
+})
+router.get('/deleteproduct/:id',function(req,res,next){
+    ProductController.deleteProduct(req,res,(data,err)=>{
+        if(err){
+          throw err;
+        }
+        else{
+          req.flash('msg', data);
+          res.redirect('/');
+        }
+    })
+})
+router.get('/editproduct/:id',function(req,res,next){
+    ProductController.editProduct(req,res,(data,err)=>{
+       if(err){
+          throw err;
+       }
+       res.render('editproduct',{layout:'admintemp','data':data});
+    })
+})
+
+router.post('/updateproduct/:id',upload.single('image'),function(req,res,next){
+  
+    ProductController.productUpdate(req,res,(data,err)=>{
+        if(err){
+          throw err;
+        }
+        else{
+          req.flash('msg', data);
+          res.redirect('/');
+        }
+    });
 })
 module.exports = router;
