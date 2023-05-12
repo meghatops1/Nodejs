@@ -50,7 +50,7 @@ const editProduct = async(req,res,cb)=>{
 }
 
 const productUpdate = async(req,res,cb)=>{
-    //try{
+    try{
         const updateObj={
             pname:req.body.pname,
             price:req.body.price,
@@ -59,10 +59,10 @@ const productUpdate = async(req,res,cb)=>{
         }
         await Product.findByIdAndUpdate(req.params.id,updateObj);
         cb("data update successfully");
-    //}
-    // catch(err){
-        // cb(undefined,err);
-    // }
+    }
+    catch(err){
+         cb(undefined,err);
+    }
 
 }
 
