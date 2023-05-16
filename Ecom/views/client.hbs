@@ -62,7 +62,7 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
   <header class="w3-container w3-xlarge">
     <p class="w3-left">Jeans</p>
     <p class="w3-right">
-      <i class="fa fa-shopping-cart w3-margin-right"></i>
+      <a href="/users/cart"><i class="fa fa-shopping-cart w3-margin-right"></i></a>
       <i class="fa fa-search"></i>
     </p>
   </header>
@@ -89,7 +89,7 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
           <div class="col-4">
             <img src="/images/{{this.image}}" style="width:100%">
            <p>{{this.pname}}<br><b>{{this.price}}</b></p>
-           <a href="/addtocart/{{this._id}}" class="text-white bg-dark">ADDTOCART</a>
+           <a href="/users/addtocart/{{this._id}}" class="text-white bg-dark">ADDTOCART</a>
            </div>
         {{/each}}
       

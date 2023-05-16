@@ -16,9 +16,10 @@ var bodyParser = require('body-parser');
 
 var app = express();
 app.use(cookieParser('NotSoSecret'));
+const oneDay = 1000 * 60 * 60 * 24;
 app.use(session({
   secret : 'something',
-  cookie: { maxAge: 60000 },
+  cookie: { maxAge: 360000 ,expires: 360000},
   resave: true,
   saveUninitialized: true
 }));

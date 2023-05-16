@@ -25,7 +25,7 @@ const Login = async(req,res,cb)=>{
     const user= await User.findOne({email:req.body.email,password:req.body.pwd});
     if(user){
         session = req.session;
-        session.userid = user._id;
+        session.userid = user.id;
         console.log(req.session);
         //====token auth==========//
         /* const sessionToken = uuid.v4()

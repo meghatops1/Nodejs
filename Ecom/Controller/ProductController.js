@@ -1,5 +1,6 @@
 
 const Product = require('../Model/ProductModel');
+const AddToCart = require('../Model/AddToCart');
 
 const ProductCreate=  async (req,res,cb) =>{
     try{        
@@ -19,6 +20,8 @@ const ProductCreate=  async (req,res,cb) =>{
 
 const viewProduct = async(req,res,cb)=>{
     try{
+        const cartData= await AddToCart.find({userId:req.session.userid});
+        console.log("🚀 ~ file: ProductController.js:24 ~ viewProduct ~ cartData:", cartData)
         const productData= await Product.find();
         cb(productData)
     }
@@ -65,6 +68,49 @@ const productUpdate = async(req,res,cb)=>{
     }
 
 }
+const addToCart = async(req,res,cb)=>{
+    try{
+    const addtocart = new AddToCart({
+        productId:req.params.id,
+        userId:req.session.userid,
+        time:new  Date()
+        
+    });
+    await addtocart.save();
+    const response= {"success":"Product Added To Cart"};
+    cb(response);
+    }catch(err){
+        cb(undefined,err);
+    }
+}
+
+const viewCart = async (req,res,cb)=>{
+    
+    try{
+        const data= await AddToCart.aggregate([
+            {
+
+            $lookup:{
+                from:"products",
+                localField:"productId",
+                foreignField:"id",
+                as:"product"
+            }
+            },
+            {
+                $match:{
+                    userId:req.session.userid
+                }
+            }
+    
+    ])
+        console.log(data);
+        cb(data);
+    }
+    catch(err){
+        cb(undefined,err);
+    }
+}
 
 
-module.exports={ProductCreate,viewProduct,deleteProduct,editProduct,productUpdate};
+module.exports={ProductCreate,viewProduct,deleteProduct,editProduct,productUpdate,addToCart,viewCart};

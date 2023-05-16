@@ -28,7 +28,7 @@ router.get('/', function(req, res, next) {
     data= await  Product.find();
     //res.send(data);
     res.render('viewproduct', { layout:'admintemp',product:data, 'msg':msg});
-  })
+  });
  
 });
 
